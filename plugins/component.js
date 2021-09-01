@@ -6,6 +6,10 @@
  */
 'use strict';
 
+/**
+ * @module
+ */
+
 const assert = require('assert');
 const { isProviderStoreKey, isProviderFactory, isProviderDependency, createDefineFunction, createExtractFunction } = require('brick-engine');
 const { ProviderStoreKey, ProviderFactory, ProviderDependency } = require('brick-engine'); // eslint-disable-line no-unused-vars
