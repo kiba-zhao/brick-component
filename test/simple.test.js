@@ -6,7 +6,7 @@
  */
 'use strict';
 
-const { createEngine, setup, ReadyPlugin, Provider } = require('brick-engine');
+const { createEngine, setup, Provider } = require('brick-engine');
 
 
 describe('simple', () => {
@@ -16,8 +16,7 @@ describe('simple', () => {
     const app = require('./fixtures/apps/simple');
     const provider = new Provider();
     const engine = await createEngine(provider);
-    await setup(engine, app);
-    await engine.mount(ReadyPlugin, { deps: [{ id: Provider }] });
+    await setup(engine, [ app ]);
 
     const [ component ] = await provider.require({ id: app.Component });
 

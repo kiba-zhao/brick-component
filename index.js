@@ -7,7 +7,7 @@
 'use strict';
 
 
-const { ComponentManager, setupComponentPlugin } = require('./lib');
+const { ComponentManager, componentSetup } = require('./lib');
 const { ComponentPlugin, defineComponent, defineComponentProperty } = require('./plugins');
 
-module.exports = { ComponentManager, setupComponentPlugin, ComponentPlugin, defineComponent, defineComponentProperty };
+module.exports = { ComponentManager, componentSetup, ComponentPlugin, defineComponent, defineComponentProperty };

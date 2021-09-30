@@ -1,3 +1,3 @@
 import { ComponentManager } from "./component_manager";
-import { setupComponentPlugin } from "./utils";
-export { ComponentManager, setupComponentPlugin };
+import { componentSetup } from "./utils";
+export { ComponentManager, componentSetup };

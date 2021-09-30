@@ -7,7 +7,7 @@
 'use strict';
 
 const { defineApplication, defineModule, defineProviderFactory } = require('brick-engine');
-const { setupComponentPlugin } = require('../../../..');
+const { componentSetup } = require('../../../..');
 const { Component } = require('./component');
 
 exports.Component = Component;
@@ -20,6 +20,6 @@ const app = {};
 defineApplication(exports, app);
 defineProviderFactory(app, { id: 'depId', factory: () => depProperty });
 
-setupComponentPlugin(app);
+componentSetup(app);
 defineModule(app, Component);
 

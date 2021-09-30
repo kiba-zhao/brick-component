@@ -14,11 +14,11 @@ npm install --save brick-component
 ``` javascript
 
 const {defineApplication} = require('brick-engine');
-const {setupComponentPlugin} = require('brick-component');
+const {componentSetup} = require('brick-component');
 
 const app = {};
 
-setupComponentPlugin(app);
+componentSetup(app);
 defineApplication(exports, app);
 ```
 
