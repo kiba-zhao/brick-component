@@ -26,6 +26,7 @@
     "typings",
     "package.json",
     "lib",
+    "decorators",
     "plugins",
     "dist"
   ],
@@ -87,6 +88,7 @@
     "collectCoverageFrom": [
       "plugins/**/*.js",
       "lib/**/*.js",
+      "decorators/**/*.js",
       "!**/index.js"
     ]
   }

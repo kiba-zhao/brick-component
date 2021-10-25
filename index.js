@@ -9,5 +9,6 @@
 
 const { ComponentManager, componentSetup } = require('./lib');
 const { ComponentPlugin, defineComponent, defineComponentProperty } = require('./plugins');
+const { Component, Inject } = require('./decorators');
 
-module.exports = { ComponentManager, componentSetup, ComponentPlugin, defineComponent, defineComponentProperty };
+module.exports = { ComponentManager, componentSetup, ComponentPlugin, defineComponent, defineComponentProperty, Component, Inject };

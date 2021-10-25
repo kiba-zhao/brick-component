@@ -8,6 +8,7 @@
 
 const { MODULE_KEY, ComponentPlugin, defineComponent, defineComponentProperty } = require('../../plugins/component');
 const { ComponentManager } = require('../../lib');
+const { Component, Inject } = require('../../decorators');
 const { Provider } = require('brick-engine');
 const faker = require('faker');
 
@@ -46,6 +47,26 @@ describe('plugins/component', () => {
 
         target = () => { };
         defineComponentProperty(target, { id: faker.datatype.uuid(), name: faker.random.word(), dep: { id: Symbol() } });
+        res = plugin.match(target);
+        expect(res).toBeTruthy();
+
+      });
+
+      it('simple with decorator', () => {
+
+        let target = () => { };
+
+        let res = plugin.match(target);
+        expect(res).toBeFalsy();
+
+        const componentDecorator = Component({ id: faker.datatype.uuid(), factory: () => {} });
+        componentDecorator(target);
+        res = plugin.match(target);
+        expect(res).toBeTruthy();
+
+        target = () => { };
+        const injectDecorator = Inject(Symbol());
+        injectDecorator(target, faker.random.word());
         res = plugin.match(target);
         expect(res).toBeTruthy();
 
