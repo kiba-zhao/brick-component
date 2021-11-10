@@ -9,6 +9,7 @@
 const { EngineModule, ProviderStoreKey } = require('brick-engine'); // eslint-disable-line no-unused-vars
 const { defineComponentProperty } = require('../plugins');
 const { PACKAGE_NAME } = require('../lib/constants');
+const isClass = require('is-class');
 
 const MODULE_KEY = `${PACKAGE_NAME}:decorators:Inject`;
 const debug = require('debug')(MODULE_KEY);
@@ -25,7 +26,8 @@ function Inject(id, required, targetId) {
   debug('Inject %s %s %s', id, required);
 
   return function(target, propertyKey) {
-    defineComponentProperty(target, { id: targetId, name: propertyKey, dep: { id, required } });
+    const _target = isClass(target.constructor) ? target.constructor : target;
+    defineComponentProperty(_target, { id: targetId, name: propertyKey, dep: { id, required } });
   };
 
 }
